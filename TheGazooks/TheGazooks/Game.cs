@@ -19,6 +19,13 @@ namespace TheGazooks
             _gameMap.PrintMap();
             Console.WriteLine(_gazook.GetName());
             Console.WriteLine(_gazook.GetGazookiType());
+            CurrentLocation();
+        }
+
+        private void CurrentLocation()
+        {
+            Console.WriteLine("You are at "  + _gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationName);
+            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationDescription);
         }
     }
 }
