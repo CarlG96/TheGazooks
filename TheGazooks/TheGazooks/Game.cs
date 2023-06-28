@@ -16,7 +16,7 @@ namespace TheGazooks
 
         public void Run()
         {
-            _gameMap.PrintMap();
+            _gameMap.PrintMap(_gazook.GetGazookiLocation().x, _gazook.GetGazookiLocation().y);
             Console.WriteLine(_gazook.GetName());
             Console.WriteLine(_gazook.GetGazookiType());
             CurrentLocation();
@@ -25,7 +25,8 @@ namespace TheGazooks
         private void CurrentLocation()
         {
             Console.WriteLine("You are at "  + _gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationName);
-            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationDescription);
+            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationDescription); // The GetGazookiMethod is stupid here
+            
         }
     }
 }

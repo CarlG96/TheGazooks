@@ -66,7 +66,7 @@ namespace TheGazooks
 
         }
 
-        public void PrintMap()
+        public void PrintMap(int x, int y)
         {
             Console.BackgroundColor = ConsoleColor.White;
             for (int i = 0; i < MapLocations.Length; ++i)
@@ -74,8 +74,16 @@ namespace TheGazooks
                 
                 for (int j = 0; j < MapLocations.Length; ++j)
                 {
-
-                    if (MapLocations[i][j] is PlainsLocation)
+                    if (MapLocations[i][j] == MapLocations[x][y])
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write('Y');
+                        Console.Write('O');
+                        Console.Write('U');
+                        Console.Write(' ');
+                        continue;
+                    }
+                    else if (MapLocations[i][j] is PlainsLocation)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write(MapLocations[i][j].Symbol);
@@ -111,6 +119,7 @@ namespace TheGazooks
                     
                     Console.Write(' ');
                     Thread.Sleep(5);
+
                 }
                 Console.Write('\n');
                 
