@@ -18,6 +18,8 @@ namespace TheGazooks
         public ForestLocation()
         {
             Symbol = '?';
+            LocationName = "Forest";
+            LocationDescription = "Beautiful Forest";
         }
     }
 
@@ -30,6 +32,8 @@ namespace TheGazooks
         public MountainLocation()
         {
             Symbol = '^';
+            LocationName = "Mountains";
+            LocationDescription = "Beautiful Mountains";
         }
     }
 
@@ -42,6 +46,8 @@ namespace TheGazooks
         public SeaLocation()
         {
             Symbol = '&';
+            LocationName = "Sea";
+            LocationDescription = "Beautiful Seas";
         }
     }
 
@@ -54,6 +60,8 @@ namespace TheGazooks
         public PlainsLocation()
         {
             Symbol = '"';
+            LocationName = "Plains";
+            LocationDescription = "Beautiful Plains";
         }
     }
 
@@ -66,6 +74,8 @@ namespace TheGazooks
         public CityLocation()
         {
             Symbol = '!';
+            LocationName = "City";
+            LocationDescription = "Beautiful City";
         }
     }
 
@@ -78,6 +88,8 @@ namespace TheGazooks
         public HillLocation()
         {
             Symbol = '~';
+            LocationName = "Hills";
+            LocationDescription = "Beautiful Hills";
         }
     }
 

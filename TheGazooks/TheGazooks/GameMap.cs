@@ -24,7 +24,7 @@ namespace TheGazooks
                     else
                     {
                         /* There are currently five possible types of location, in order to weight them we'll set them at different probabilities.
-                         * 0,1,2 will be Plains, 3,4,5 will be Forest, 6,7 will be sea, 8 will be city and 9 will be hill
+                         * 0,1,2 will be Plains, 3,4,5 will be Forest, 6 will be sea, 7,8 will be city and 9 will be hill
                          */
                         int randomNum = r.Next(10);
                         switch (randomNum)
@@ -51,7 +51,7 @@ namespace TheGazooks
                                 _mapLocations[i][j] = new SeaLocation();
                                 break;
                             case 7:
-                                _mapLocations[i][j] = new SeaLocation();
+                                _mapLocations[i][j] = new CityLocation();
                                 break;
                             case 8:
                                 _mapLocations[i][j] = new CityLocation();
@@ -105,13 +105,12 @@ namespace TheGazooks
                         Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.Write(_mapLocations[i][j].Symbol);
                     }
-
-                    
-                       
+   
                     Console.Write(_mapLocations[i][j].Symbol);
                     Console.Write(_mapLocations[i][j].Symbol);
                     
                     Console.Write(' ');
+                    Thread.Sleep(5);
                 }
                 Console.Write('\n');
                 
