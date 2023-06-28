@@ -1,4 +1,5 @@
 ﻿using System.Net.Mail;
+using System.Reflection;
 
 namespace TheGazooks
 {
@@ -6,27 +7,59 @@ namespace TheGazooks
     {
         private GameMap _gameMap;
         private Gazook _gazook;
+        //private Intro _intro; TODO
+        private InputHandler _inputHandler;
         public Game(GameMap gameMap, Gazook gazook)
         {
-            // TODO MainCharacter mainCharacter = new MainCharacter();
+            //_intro; TODO
             _gameMap = gameMap;
             _gazook = gazook;
-            // TODO InputHandler inputHandler = new InputHandler();
+            _inputHandler = new InputHandler();
         }
 
         public void Run()
         {
-            _gameMap.PrintMap(_gazook.GetGazookiLocation().x, _gazook.GetGazookiLocation().y);
-            Console.WriteLine(_gazook.GetName());
-            Console.WriteLine(_gazook.GetGazookiType());
-            CurrentLocation();
+            char input = '1';
+            while (input != 'x') // THIS IS WEIRD
+            {
+                _gameMap.PrintMap(_gazook.GetGazookiLocationX(), _gazook.GetGazookiLocationY());
+                CurrentLocation();
+                input = _inputHandler.AskPlayer();
+                MoveLocation(input);
+            }
+        }
+
+        private void MoveLocation(char input)
+        {
+            // THIS IS WEIRD BUT IT WORKS, ALSO NEED ERROR HANDLING FOR THE ARRAY STUFF
+            switch (input)
+            {
+                case 'w':
+                    _gazook.SetGazookiLocationX(_gazook.GetGazookiLocationX() - 1);
+                    break;
+                case 'd':
+                    _gazook.SetGazookiLocationY(_gazook.GetGazookiLocationY() + 1);
+                    break;
+                case 's':
+                    _gazook.SetGazookiLocationX(_gazook.GetGazookiLocationX() + 1);
+                    break;
+                case 'a':
+                    _gazook.SetGazookiLocationY(_gazook.GetGazookiLocationY() - 1);
+                    break;
+                default:
+                    throw new Exception("Char input was wrong!");
+
+            }
         }
 
         private void CurrentLocation()
         {
-            Console.WriteLine("You are at "  + _gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationName);
-            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocation().x][_gazook.GetGazookiLocation().y].LocationDescription); // The GetGazookiMethod is stupid here
-            
+            Console.WriteLine("You are at "  + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()].LocationName);
+            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()].LocationDescription); // The GetGazookiMethod is stupid here
+            Console.WriteLine("To the north is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY() -1].LocationDescription);
+            Console.WriteLine("To the east is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX() + 1][_gazook.GetGazookiLocationY()].LocationDescription);
+            Console.WriteLine("To the south is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY() + 1].LocationDescription);
+            Console.WriteLine("To the west is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX() - 1][_gazook.GetGazookiLocationY()].LocationDescription);
         }
     }
 }

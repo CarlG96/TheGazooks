@@ -33,9 +33,24 @@ namespace TheGazooks
             return _gazookiType;
         }
 
-        public (int x, int y) GetGazookiLocation()
+        public int GetGazookiLocationX()
         {
-            return (_gazookiLocationX, _gazookiLocationY);
+            return _gazookiLocationX;
+        }
+
+        public int GetGazookiLocationY()
+        {
+            return _gazookiLocationY;
+        }
+
+        public void SetGazookiLocationX(int newValue)
+        {
+            _gazookiLocationX = newValue;
+        }
+
+        public void SetGazookiLocationY(int newValue)
+        {
+            _gazookiLocationY = newValue;
         }
     }
 }
