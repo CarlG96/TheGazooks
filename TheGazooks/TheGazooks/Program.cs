@@ -9,6 +9,7 @@
             gameBuilder.SetMapSize(numOfTiles); 
             gameBuilder.AddMap();
             gameBuilder.CreateGazook();
+            gameBuilder.AddInputDirector();
             Game game = gameBuilder.BuildGame();
 
             game.Run();
