@@ -6,7 +6,11 @@
         {
             int numOfTiles = 10;
             GameBuilder gameBuilder = new GameBuilder();
-            Game game = gameBuilder.AddMap();
+            gameBuilder.SetMapSize(numOfTiles); 
+            gameBuilder.AddMap();
+            gameBuilder.CreateGazook();
+            Game game = gameBuilder.BuildGame();
+
             game.Run();
         }
     }
