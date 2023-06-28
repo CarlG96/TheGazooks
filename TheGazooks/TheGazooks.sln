@@ -5,6 +5,11 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGazooks", "TheGazooks\TheGazooks.csproj", "{0DE1EFF3-4EED-4799-A9A5-C2D7F7FD7FD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GazooksMainTests", "GazooksMainTests\GazooksMainTests.csproj", "{9F148724-5E8C-4A8F-BE6A-F7A66B1CA8A4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0DE1EFF3-4EED-4799-A9A5-C2D7F7FD7FD7} = {0DE1EFF3-4EED-4799-A9A5-C2D7F7FD7FD7}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{0DE1EFF3-4EED-4799-A9A5-C2D7F7FD7FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DE1EFF3-4EED-4799-A9A5-C2D7F7FD7FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DE1EFF3-4EED-4799-A9A5-C2D7F7FD7FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F148724-5E8C-4A8F-BE6A-F7A66B1CA8A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F148724-5E8C-4A8F-BE6A-F7A66B1CA8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F148724-5E8C-4A8F-BE6A-F7A66B1CA8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F148724-5E8C-4A8F-BE6A-F7A66B1CA8A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
