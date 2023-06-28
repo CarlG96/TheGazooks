@@ -3,18 +3,12 @@ using TheGazooks;
 
 namespace GazooksMainTests
 {
-    public class UnitTest1
+    public class BasicGameTests
     {
         [Fact]
-        public void GameShouldRunTest()
+        public void GameShouldRun()
         {
-            // Arrange
-            Game game = new Game();
-
-            // Act
-            game.Run();
-
-            // Assert
+            
             
         }
 

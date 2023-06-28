@@ -5,16 +5,16 @@ namespace TheGazooks
     public class Game
     {
         private GameMap _gameMap;
-        public Game()
+        public Game(int numOfTiles)
         {
             // TODO MainCharacter mainCharacter = new MainCharacter();
-            _gameMap = new GameMap();
+            _gameMap = new GameMap(numOfTiles);
             // TODO InputHandler inputHandler = new InputHandler();
         }
 
         public void Run()
         {
-            _gameMap.CreateMap(int sizeX, int sizeY);
+            
             _gameMap.PrintMap();
         }
     }

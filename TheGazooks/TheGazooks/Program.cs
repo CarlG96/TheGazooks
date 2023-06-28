@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
+            int numOfTiles = 25;
+            Game game = new Game(numOfTiles);
             game.Run();
         }
     }
