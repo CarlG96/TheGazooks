@@ -5,13 +5,7 @@
         static void Main(string[] args)
         {
             int numOfTiles = 10;
-            GameBuilder gameBuilder = new GameBuilder();
-            gameBuilder.SetMapSize(numOfTiles); 
-            gameBuilder.AddMap();
-            gameBuilder.CreateGazook();
-            //gameBuilder.AddInputDirector();
-            Game game = gameBuilder.BuildGame();
-
+            Game game = new GameBuilder().AddIntro().SetMapSize(numOfTiles).AddMap().CreateGazook().AddInputHandler().BuildGame();
             game.Run();
         }
     }

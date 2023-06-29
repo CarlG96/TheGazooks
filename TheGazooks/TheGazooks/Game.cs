@@ -7,26 +7,27 @@ namespace TheGazooks
     {
         private GameMap _gameMap;
         private Gazook _gazook;
-        //private Intro _intro; TODO
+        private Intro _intro; 
         private InputHandler _inputHandler;
-        public Game(GameMap gameMap, Gazook gazook)
+        public Game(GameMap gameMap, Gazook gazook, InputHandler inputHandler, Intro intro)
         {
-            //_intro; TODO
+            _intro = intro;
             _gameMap = gameMap;
             _gazook = gazook;
-            _inputHandler = new InputHandler();
+            _inputHandler = inputHandler;
         }
 
         public void Run()
         {
+            _intro.WelcomePlayer();
             char playerMovementInput = '1';
-            while (playerMovementInput != 'x') // THIS IS WEIRD AND THE MOVEMENT INPUT NEEDS TO BE CHANGED
+            while (playerMovementInput != 'x') // TODO THIS IS WEIRD AND THE MOVEMENT INPUT NEEDS TO BE CHANGED
             {
                 Console.Clear();
                 _gameMap.PrintMap(_gazook.GetGazookiLocationX(), _gazook.GetGazookiLocationY());
                 CurrentLocation();
-                playerMovementInput = _inputHandler.GetPlayerMovementInput(); // TODO method needs renaming
-                if (_inputHandler.CheckInput(playerMovementInput))
+                playerMovementInput = _inputHandler.GetPlayerMovementInput(); 
+                if (_inputHandler.CheckInput(playerMovementInput)) // TODO check the input properly to account for mountains
                 {
                     MoveLocation(playerMovementInput);    
                 }
@@ -59,7 +60,7 @@ namespace TheGazooks
         private void CurrentLocation()
         {
             Console.WriteLine("You are at "  + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()].LocationName);
-            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()].LocationDescription); // The GetGazookiMethod is stupid here
+            Console.WriteLine(_gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()].LocationDescription); 
             Console.WriteLine("To the north is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY() -1].LocationDescription);
             Console.WriteLine("To the east is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX() + 1][_gazook.GetGazookiLocationY()].LocationDescription);
             Console.WriteLine("To the south is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY() + 1].LocationDescription);
