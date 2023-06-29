@@ -6,10 +6,15 @@
         {
         }
 
-        public char AskPlayer()
+        public char GetPlayerMovementInput()
         {
             Console.WriteLine("Which direction would you like to go? Type W for north, A for west, E for east and D for south.");
             return Console.ReadKey().KeyChar;
+        }
+
+        internal bool CheckInput(char playerMovementInput) // TODO needs to be done
+        {
+            return true;
         }
     }
 }

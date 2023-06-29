@@ -19,13 +19,17 @@ namespace TheGazooks
 
         public void Run()
         {
-            char input = '1';
-            while (input != 'x') // THIS IS WEIRD
+            char playerMovementInput = '1';
+            while (playerMovementInput != 'x') // THIS IS WEIRD AND THE MOVEMENT INPUT NEEDS TO BE CHANGED
             {
+                Console.Clear();
                 _gameMap.PrintMap(_gazook.GetGazookiLocationX(), _gazook.GetGazookiLocationY());
                 CurrentLocation();
-                input = _inputHandler.AskPlayer();
-                MoveLocation(input);
+                playerMovementInput = _inputHandler.GetPlayerMovementInput(); // TODO method needs renaming
+                if (_inputHandler.CheckInput(playerMovementInput))
+                {
+                    MoveLocation(playerMovementInput);    
+                }
             }
         }
 

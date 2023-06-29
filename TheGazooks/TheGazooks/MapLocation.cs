@@ -1,4 +1,6 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using GenerativeDictionaries.MapLocationDescriptions;
+using GenerativeDictionaries.MapLocationNames;
+using System.Reflection.Metadata.Ecma335;
 
 namespace TheGazooks
 {
@@ -74,8 +76,8 @@ namespace TheGazooks
         public CityLocation()
         {
             Symbol = '!';
-            LocationName = "City";
-            LocationDescription = "Beautiful City";
+            LocationName = CityNameDictionary.CityNames[1];  // TODO, change for randomisation
+            LocationDescription = CityDescriptionDictionary.CityDescriptions[1]; //TODO, change for randomisation
         }
     }
 
