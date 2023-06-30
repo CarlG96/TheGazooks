@@ -11,7 +11,22 @@ namespace TheGazooks
         public string LocationDescription { get; }
     }
 
-    public class ForestLocation : IMapLocation
+    public interface IMapLocationWithShop // TODO, is there a better way to handle the shop stuff
+    {
+        public void EnterShop();
+    }
+
+    public interface IMapLocationWithRandomEncounters // TODO, is there a better way to handle this sort of thing?
+    {
+        public void RandomEncounter();
+    }
+
+    public interface IImpassableLocation // TODO, there has to be a better way of handling this!!!! Also would need renaming
+    {
+        public void Block();
+    }
+
+    public class ForestLocation : IMapLocation, IMapLocationWithRandomEncounters
     {
         public char Symbol { get; private set; }
         public string LocationName { get; private set; }
@@ -23,9 +38,14 @@ namespace TheGazooks
             LocationName = "Forest";
             LocationDescription = "Beautiful Forest";
         }
+
+        public void RandomEncounter()
+        {
+            throw new NotImplementedException(); // TODO, not implemented
+        }
     }
 
-    public class MountainLocation : IMapLocation
+    public class MountainLocation : IMapLocation, IImpassableLocation
     {
         public char Symbol { get; private set; }
         public string LocationName { get; private set; }
@@ -37,9 +57,14 @@ namespace TheGazooks
             LocationName = "Mountains";
             LocationDescription = "Beautiful Mountains";
         }
+
+        public void Block()
+        {
+            throw new NotImplementedException(); // TODO, consider changing all of this
+        }
     }
 
-    public class SeaLocation : IMapLocation
+    public class SeaLocation : IMapLocation, IMapLocationWithRandomEncounters
     {
         public char Symbol { get; private set; }
         public string LocationName { get; private set; }
@@ -51,9 +76,14 @@ namespace TheGazooks
             LocationName = "Sea";
             LocationDescription = "Beautiful Seas";
         }
+
+        public void RandomEncounter()
+        {
+            throw new NotImplementedException(); //TODO, not implemented
+        }
     }
 
-    public class PlainsLocation : IMapLocation
+    public class PlainsLocation : IMapLocation, IMapLocationWithRandomEncounters
     {
         public char Symbol { get; private set; }
         public string LocationName { get; private set; }
@@ -65,9 +95,14 @@ namespace TheGazooks
             LocationName = "Plains";
             LocationDescription = "Beautiful Plains";
         }
+
+        public void RandomEncounter()
+        {
+            throw new NotImplementedException(); //TODO, not implemented
+        }
     }
 
-    public class CityLocation : IMapLocation
+    public class CityLocation : IMapLocation, IMapLocationWithShop
     {
         public char Symbol { get; private set; }
         public string LocationName { get; private set; }
@@ -79,9 +114,14 @@ namespace TheGazooks
             LocationName = CityNameDictionary.CityNames[1];  // TODO, change for randomisation
             LocationDescription = CityDescriptionDictionary.CityDescriptions[1]; //TODO, change for randomisation
         }
+
+        public void EnterShop()
+        {
+            throw new NotImplementedException(); // TODO not implented yet but want it to be
+        }
     }
 
-    public class HillLocation : IMapLocation
+    public class HillLocation : IMapLocation, IMapLocationWithRandomEncounters
     {
         public char Symbol { get; private set; }
         public string LocationName { get; private set; }
@@ -92,6 +132,11 @@ namespace TheGazooks
             Symbol = '~';
             LocationName = "Hills";
             LocationDescription = "Beautiful Hills";
+        }
+
+        public void RandomEncounter()
+        {
+            throw new NotImplementedException(); //TODO, not implemented
         }
     }
 

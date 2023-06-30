@@ -27,10 +27,10 @@ namespace TheGazooks
                 _gameMap.PrintMap(_gazook.GetGazookiLocationX(), _gazook.GetGazookiLocationY());
                 CurrentLocation();
                 playerMovementInput = _inputHandler.GetPlayerMovementInput(); 
-                if (_inputHandler.CheckInput(playerMovementInput)) // TODO check the input properly to account for mountains
-                {
+                //if (_inputHandler.CheckInput(playerMovementInput)) // TODO check the input properly to account for mountains
+                //{
                     MoveLocation(playerMovementInput);    
-                }
+                //}
             }
         }
 
@@ -51,6 +51,13 @@ namespace TheGazooks
                 case 'a':
                     _gazook.SetGazookiLocationY(_gazook.GetGazookiLocationY() - 1);
                     break;
+                case '\r':
+                    if(_gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()] is CityLocation)
+                    {
+                        Console.WriteLine("Welcome to my shop!");
+                        _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()]; //TODO this is a bad name and the function doesn't work yet!
+                     }
+                    break;
                 default:
                     throw new Exception("Char input was wrong!");
 
@@ -65,6 +72,10 @@ namespace TheGazooks
             Console.WriteLine("To the east is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX() + 1][_gazook.GetGazookiLocationY()].LocationDescription);
             Console.WriteLine("To the south is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY() + 1].LocationDescription);
             Console.WriteLine("To the west is: " + _gameMap.MapLocations[_gazook.GetGazookiLocationX() - 1][_gazook.GetGazookiLocationY()].LocationDescription);
+            if (_gameMap.MapLocations[_gazook.GetGazookiLocationX()][_gazook.GetGazookiLocationY()] is CityLocation)
+            {
+                Console.WriteLine("See Merchant? Press Enter!");
+            }
         }
     }
 }
